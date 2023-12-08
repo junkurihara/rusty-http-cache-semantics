@@ -893,28 +893,28 @@ impl ResponseLike for http::response::Parts {
     }
 }
 
-#[cfg(feature = "reqwest")]
-impl RequestLike for reqwest::Request {
-    fn uri(&self) -> Uri {
-        self.url().as_str().parse().expect("Uri and Url are incompatible!?")
-    }
-    fn is_same_uri(&self, other: &Uri) -> bool {
-        self.url().as_str() == other
-    }
-    fn method(&self) -> &Method {
-        self.method()
-    }
-    fn headers(&self) -> &HeaderMap {
-        self.headers()
-    }
-}
+// #[cfg(feature = "reqwest")]
+// impl RequestLike for reqwest::Request {
+//     fn uri(&self) -> Uri {
+//         self.url().as_str().parse().expect("Uri and Url are incompatible!?")
+//     }
+//     fn is_same_uri(&self, other: &Uri) -> bool {
+//         self.url().as_str() == other
+//     }
+//     fn method(&self) -> &Method {
+//         self.method()
+//     }
+//     fn headers(&self) -> &HeaderMap {
+//         self.headers()
+//     }
+// }
 
-#[cfg(feature = "reqwest")]
-impl ResponseLike for reqwest::Response {
-    fn status(&self) -> StatusCode {
-        self.status()
-    }
-    fn headers(&self) -> &HeaderMap {
-        self.headers()
-    }
-}
+// #[cfg(feature = "reqwest")]
+// impl ResponseLike for reqwest::Response {
+//     fn status(&self) -> StatusCode {
+//         self.status()
+//     }
+//     fn headers(&self) -> &HeaderMap {
+//         self.headers()
+//     }
+// }
